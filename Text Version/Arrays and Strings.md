@@ -48,3 +48,30 @@ O(n) - Using Bit Masks
       }
       return false;
     }
+
+1.2
+===
+
+O(n) - In Place
+---------------
+
+    public char[] reverseInPlace(char[] charArray) {
+      for(int i=0,j=charArray.length-1; i<=j; i++, j--) {
+        char temp = charArray[i];
+        charArray[i] = charArray[j];
+        charArray[j] = temp;
+      }
+      return charArray;
+    }
+
+O(n) - New String
+-----------------
+
+    public String reverse(String input) {
+      StringBuilder ret = new StringBuilder();
+  
+      for(int i=input.length-1; i>=0; i--) {
+        ret.append(input.charAt(i));
+      }
+      return ret.toString();
+    }
