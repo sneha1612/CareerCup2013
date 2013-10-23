@@ -100,5 +100,36 @@
       return fast;
     }
 
+2.1
+===
+
+    public void removeDuplicates(Node root) {
+      Set<Integer> hashSet = new HashSet<Integer>();
+
+      Node temp = root;
+      Node prev = null;
+
+      while(temp!=null) {
+        if(hashSet.contains(temp.getData())
+          prev.setNext(temp.getNext());
+        else {
+          hashSet.put(temp.getData());
+          prev = temp;
+        }
+        temp = temp.getNext();
+      }
+    }
+
+2.3
+===
+
+    public boolean deleteNode(Node curr) {
+      if(curr == null || curr.getNext() == null)
+        return false;
+
+      curr.setData(curr.getNext().getData());
+      curr.setNext(curr.getNext().getNext());
+    }
+
 
   
