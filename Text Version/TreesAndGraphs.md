@@ -49,12 +49,14 @@
     public boolean isConnected(Node node, Node target) {        
       if(node == target)
         return true;
-      else
+      else {
         while(node.getChildren() != null) {
           for(Node child : node.getChildren()) {
             isConnected(child, target);
           }
         }
+        return false;
+      }
     }
 
 
@@ -64,7 +66,7 @@
 
     public Node commonAncestor(Node root, Node n1, Node n2) {
       if(root == null)
-        return;
+        return null;
       if(isChild(root.getLeft(), n1) && isChild(root.getLeft(), n2))
         return commonAncestor(root.getLeft(), n1, n2);
       else if(isChild(root.getRight(), n1) && isChild(root.getRight(), n2))
@@ -109,3 +111,33 @@
       }
       return node;
     }
+
+4.4
+===
+
+    public void linkedListBetweenLevel(Node root) {
+      LinkedList<Node> list = new LinkedList<Node>();
+      ArrayList<LinkedList<Node>> arrayList = new ArrayList<LinlkedList<Node>>();
+      int level = 0;
+      list.add(root);
+      arrayList.add(level, list);
+
+      while(true) {
+        levelList<Node> = new LinkedList<Node>();
+        for(int i=0;i<arrayList.get(level).size();i++) {
+          Node n = arrayList.get(level).get(i);
+          if(n != null) {
+            if(n.getLeft() != null)
+              list.add(linkedListBetweenLevel(n.getLeft()));
+            if(n.getRight() != null)
+              list.add(linkedListBetweenLevel(n.getRight()));
+          }
+        }
+        if(list.size() >0)
+          arrayList.add(level+1,list);
+        else
+          break;
+        level++;
+      }
+    return result;
+  }
