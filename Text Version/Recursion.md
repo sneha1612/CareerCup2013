@@ -26,3 +26,14 @@ Iterative
       }
       return j;
     }
+
+8.2
+===
+
+    public int getPaths(int n, int x, int y) {
+      if((x == n-1) || (y==n-1)) 
+        return 1;
+
+      return getPaths(n, x, y+1) + getPaths(n, x+1, y);
+    }
+
