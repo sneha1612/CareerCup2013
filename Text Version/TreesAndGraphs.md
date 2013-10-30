@@ -115,6 +115,9 @@
 4.4
 ===
 
+Method 1
+--------
+
     public void linkedListBetweenLevel(Node root) {
       LinkedList<Node> list = new LinkedList<Node>();
       ArrayList<LinkedList<Node>> arrayList = new ArrayList<LinlkedList<Node>>();
@@ -141,3 +144,37 @@
       }
     return result;
   }
+
+
+Method 2
+--------
+
+    public void linkedListBetweenLevel(Node root) {
+      Queue<Node> q = new LinkedList<Node>();
+      List<List<Node>> arrayList = new ArrayList<List<Node>>();
+      List<Node> list = new ArrayList<Node>();
+      Map<Node, Integer> distanceMap = new HashMap<Node, Integer>();
+
+      q.add(root);
+      list.add(root);
+      arrayList.add(0, list);
+      distanceMap.put(root, 0);
+
+      while(!q.isEmpty()) {
+        Node node = q.dequeue();
+        List<Node> children = node.getChildren();
+        int currDistance = distanceMap.get(node);
+        for(Node child : children) {
+            q.enqueue(child);
+            distanceMap.put(child, currDistance +1);
+            if(arrayList.get(currDistance+1))
+              arrayList.get(currDistance+1).add(child);
+            else
+              arrayList.get(currentDistance+1).add(new ArrayList<Node<>(child));
+        }
+      }
+      return arrayList;
+    }
+
+
+
