@@ -10,11 +10,11 @@ O(n) - Using External Hash
 
       for(char c : charArray) {
         if(charSet.contains(c))
-          return true;
+          return false;
         else
           charSet.add(c);
       }
-      return false;
+      return true;
     }
 
 O(n^2)
@@ -26,10 +26,10 @@ O(n^2)
       for(int i=0;i<input.length-1;i++) {
         for(iny j=i+1;j<input.length;j++) {
           if(charArr[i] == charArr[j)
-            return true;
+            return false;
         }
       }
-      return false;
+      return true;
     }
 
 O(n) - Using Bit Masks
@@ -42,11 +42,11 @@ O(n) - Using Bit Masks
       for(char c : charArray) {
         int index = c - 'a';
 
-        if (temp & (1 << index) == 1)
-          return true;
+        if (temp & (1 << index) > 0)
+          return false;
         temp |= (1 << index);
       }
-      return false;
+      return true;
     }
 
 1.2
@@ -105,7 +105,7 @@ O(n^2) - In Place - No External Data Structures
       }
 
       if(temp & (1<< charArray[index] - 'a'))
-        return true
+        return true;
       else
         return false;
     }

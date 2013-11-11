@@ -167,10 +167,10 @@ Method 2
         for(Node child : children) {
             q.enqueue(child);
             distanceMap.put(child, currDistance +1);
-            if(arrayList.get(currDistance+1))
+            if(arrayList.get(currDistance+1) != null)
               arrayList.get(currDistance+1).add(child);
             else
-              arrayList.get(currentDistance+1).add(new ArrayList<Node<>(child));
+              arrayList.add(new ArrayList<Node<>(child));
         }
       }
       return arrayList;

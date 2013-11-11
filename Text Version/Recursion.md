@@ -47,7 +47,7 @@ Iterative
         finalSubsets.add(new ArrayList<Integer>());
       }
       else {
-        finalSubsets = getSubsets(inputSet, index + 1);
+        finalSubsets = findSubsets(inputSet, index + 1);
         ArrayList<ArrayList<Integer>> tempSubsets = new ArrayList<ArrayList<Integer>>();
         for(ArrayList<Integer> subSet : finalSubsets) {
           newSubset = subSet;

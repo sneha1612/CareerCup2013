@@ -40,11 +40,13 @@
       for(int k = n-1; k>=0; k--) {
         if(final == getNumberOfOnes(k))
           System.out.println("Next smallest:" +  k);
+          break;
       }
 
       for(int k = n+1; k<=32; k++) {
         if(final == getNumberOfOnes(k))
           System.out.println("Next largest:" +  k);
+          break;
       }
     }
 
